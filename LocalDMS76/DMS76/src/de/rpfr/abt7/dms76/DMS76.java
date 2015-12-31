@@ -5,6 +5,7 @@ import java.util.Map;
 import de.rpfr.abt7.dms76.gui.HeaderPane;
 import de.rpfr.abt7.dms76.gui.MainPane;
 import de.rpfr.abt7.dms76.gui.StatusPane;
+import de.rpfr.abt7.dms76.util.DMSFileHandler;
 import de.rpfr.abt7.dms76.util.DMSUtil;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -16,6 +17,8 @@ public class DMS76 extends Application {
 
 	public final static String TITLE = "DMS76 - V1.0";
 
+	private DMSUtil dmsUtil;
+	private DMSFileHandler dmsFh;
 	private StatusPane paneStatus;
 
 
@@ -26,7 +29,7 @@ public class DMS76 extends Application {
 		Map<String, String> named = p.getNamed();
 
 		try {
-			DMSUtil.getInstance(named.get("initfile"));
+			dmsUtil = DMSUtil.getInstance(named.get("initfile"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -36,7 +39,7 @@ public class DMS76 extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,550,600);
+			Scene scene = new Scene(root,550,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle(TITLE);
 			primaryStage.setScene(scene);
@@ -50,6 +53,11 @@ public class DMS76 extends Application {
 			primaryStage.show();
 			
 			setStatus("Alles wird gut :)"); 
+			
+			
+			dmsFh = DMSFileHandler.getInstance(this);
+			dmsFh.checkDirectory(dmsUtil.getProperty(DMSUtil.PROP_TARGETDIR));
+			
 
 		} catch(Exception e) {
 			e.printStackTrace();

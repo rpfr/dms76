@@ -1,7 +1,9 @@
 package de.rpfr.abt7.dms76.gui;
 
+import de.rpfr.abt7.dms76.obj.SearchfilterBean;
 import javafx.collections.FXCollections;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ContentDisplay;
@@ -15,11 +17,15 @@ import javafx.scene.layout.GridPane;
 public class SearchfilterPane extends GridPane {
 	
 	private MainPane mainpanel;
+	private SearchfilterBean sfbean;
 
 	public SearchfilterPane(MainPane mainpanel) {
 		super();
+		
 		setId("searchfilter");
 		this.mainpanel = mainpanel;
+		
+		sfbean = new SearchfilterBean();
 		
 		setHgap(10);
 	    setVgap(10);
@@ -31,6 +37,7 @@ public class SearchfilterPane extends GridPane {
 	    TextField tfErsteller = new TextField();
 	    tfErsteller.getStyleClass().add("forminput");
 	    setConstraints(tfErsteller, 1, 0);
+	    tfErsteller.textProperty().bindBidirectional(sfbean.erstellerProperty());
 
 	    Label labErstellerImg = new Label();
 	    labErstellerImg.getStyleClass().add("formimage");
@@ -47,10 +54,12 @@ public class SearchfilterPane extends GridPane {
 	    DatePicker dpVon = new DatePicker();
 	    dpVon.getStyleClass().add("forminput");
 	    setConstraints(dpVon, 1, 1);
+	    dpVon.valueProperty().bindBidirectional(sfbean.vonProperty());
 	    
 	    DatePicker dpBis = new DatePicker();
 	    dpBis.getStyleClass().add("forminput");
 	    setConstraints(dpBis, 2, 1);
+	    dpBis.valueProperty().bindBidirectional(sfbean.bisProperty());
 	    
 	    Label labVonBisImg = new Label();
 	    labVonBisImg.getStyleClass().add("formimage");
@@ -77,6 +86,7 @@ public class SearchfilterPane extends GridPane {
 	    		);
 	    cbDateityp.getStyleClass().add("forminput");
 	    setConstraints(cbDateityp, 1, 3);
+	    cbDateityp.valueProperty().bindBidirectional(sfbean.dateitypProperty());
 
 	    Label labDateitypImg = new Label();
 	    labDateitypImg.getStyleClass().add("formimage");
@@ -94,6 +104,7 @@ public class SearchfilterPane extends GridPane {
 	    tfSuche.getStyleClass().add("forminput");
 	    setConstraints(tfSuche, 1, 4);
 	    setColumnSpan(tfSuche, 3);
+	    tfSuche.textProperty().bindBidirectional(sfbean.suchbegriffProperty());
 
 	    Label labSucheImg = new Label();
 	    labSucheImg.getStyleClass().add("formimage");
@@ -108,12 +119,14 @@ public class SearchfilterPane extends GridPane {
 	    cbUnd.setSelected(false);
 	    cbUnd.getStyleClass().add("forminput");
 	    setConstraints(cbUnd, 1, 5);
+	    cbUnd.selectedProperty().bindBidirectional(sfbean.undVerknuepfungProperty());
 
 	    CheckBox cbFuzzy = new CheckBox();
 	    cbFuzzy.setText("Ähnliche Treffer finden");
 	    cbFuzzy.setSelected(false);
 	    cbFuzzy.getStyleClass().add("forminput");
 	    setConstraints(cbFuzzy, 2, 5);
+	    cbFuzzy.selectedProperty().bindBidirectional(sfbean.aehnlicheTrefferProperty());
 
 	    Label labEinstellungenImg = new Label();
 	    labEinstellungenImg.getStyleClass().add("formimage");
@@ -122,10 +135,24 @@ public class SearchfilterPane extends GridPane {
 	    labEinstellungenImg.setAlignment(Pos.CENTER);
 	    setConstraints(labEinstellungenImg, 5, 5);
 	    
+	    Button btnGo = new Button();
+	    btnGo.setId("btnGo");
+	    btnGo.setText("Suche starten");
+	    btnGo.setPrefWidth(380);
+	    setConstraints(btnGo, 1, 6);
+	    setColumnSpan(btnGo, 3);
+	    btnGo.setOnAction((e)->readyToSearch());
 	    
-	    getChildren().addAll(labErsteller, tfErsteller, labVon, dpVon, dpBis, cbDateShortcut, labErstellerImg, labVonBisImg, labDateityp, cbDateityp, labDateitypImg, labSuche, tfSuche, labSucheImg, cbUnd, cbFuzzy, labEinstellungenImg);
+	    
+	    
+	    
+	    getChildren().addAll(labErsteller, tfErsteller, labVon, dpVon, dpBis, cbDateShortcut, labErstellerImg, labVonBisImg, labDateityp, cbDateityp, labDateitypImg, labSuche, tfSuche, labSucheImg, cbUnd, cbFuzzy, labEinstellungenImg, btnGo);
 	    
 
+	}
+
+	private void readyToSearch() {
+		System.out.println(sfbean);
 	}
 
 }

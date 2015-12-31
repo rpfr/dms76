@@ -7,6 +7,8 @@ import java.util.Properties;
 
 public class DMSUtil {
 	
+	public final static String PROP_TARGETDIR = "targetdirectory";
+	
 	private static DMSUtil myself;
 	
 	private Properties props;

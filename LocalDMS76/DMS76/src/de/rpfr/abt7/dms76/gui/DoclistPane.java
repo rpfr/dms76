@@ -20,7 +20,12 @@ public class DoclistPane extends StackPane {
 		
 		TableColumn<Hit, String> colId = new TableColumn<>("ID");
 		TableColumn<Hit, String> colDatei = new TableColumn<>("Datei");
-		tabTreffer.getColumns().addAll(colId, colDatei);
+		TableColumn<Hit, String> colGroesse = new TableColumn<>("Größe");
+		TableColumn<Hit, String> colErsteller = new TableColumn<>("Ersteller");
+		TableColumn<Hit, String> colErstellungsdatum = new TableColumn<>("Erstellungsdatum");
+		TableColumn<Hit, String> colLetzteAenderung = new TableColumn<>("Letzte Änderung");
+		TableColumn<Hit, String> colSuchbegriffe = new TableColumn<>("Suchbegriffe");
+		tabTreffer.getColumns().addAll(colId, colDatei, colErsteller, colGroesse, colErstellungsdatum, colLetzteAenderung, colSuchbegriffe);
 		
 		getChildren().add(tabTreffer);
 	}

@@ -34,6 +34,18 @@
 }
 
 #doclist {
-    -fx-padding: 4px;
+    -fx-padding: 10px;
 }
 
+#btnGo {
+    -fx-padding: 10px;
+	-fx-background-color: linear-gradient(to top left, #000066, #000033);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 10, 0, 5, 5);
+}
+
+#btnGo:hover {
+	-fx-background-color: linear-gradient(to top left, #000033, #000066);
+    -fx-text-fill: green;
+	
+}
