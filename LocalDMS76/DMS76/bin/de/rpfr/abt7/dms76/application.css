@@ -3,6 +3,10 @@
 	-fx-font-family: 'sans-serif';
 }
 
+#mainpane {
+	-fx-background-image: url('/../res/bg.jpg');
+}
+
 #status, #header {
 	-fx-padding: 10px;
 	-fx-border-width: 1 0 0 0; 
@@ -21,16 +25,27 @@
     -fx-text-fill: white;
 }
 
+.tabpane {
+    -fx-padding: 0 10 0 10;
+}
+
 #searchfilter {
     -fx-padding: 10px;
 }
 
 #searchfilter .formlabel {
+    -fx-font-weight: bold;
     -fx-padding: 4px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 10, 0, 5, 5);
 }
 
 #searchfilter .forminput {
     -fx-padding: 4px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 10, 0, 5, 5);
+}
+
+#searchfilter .formimage {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 10, 0, 5, 5);
 }
 
 #doclist {

@@ -3,5 +3,16 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
+	<classpathentry kind="lib" path="F:/applications/PortableApps/Documents/mylocalgit/LocalDMS76/DMS76/lib/ini4j-0.5.4.jar"/>
+	<classpathentry kind="lib" path="intern"/>
+	<classpathentry kind="lib" path="res"/>
+	<classpathentry kind="lib" path="F:/Java/extlib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="F:/Java/extlib/filedrop-1.1/filedrop.jar"/>
+	<classpathentry kind="lib" path="F:/Java/extlib/lucene-5.3.1/analysis/common/lucene-analyzers-common-5.3.1.jar"/>
+	<classpathentry kind="lib" path="F:/Java/extlib/lucene-5.3.1/core/lucene-core-5.3.1.jar"/>
+	<classpathentry kind="lib" path="F:/Java/extlib/lucene-5.3.1/queryparser/lucene-queryparser-5.3.1.jar"/>
+	<classpathentry kind="lib" path="F:/Java/extlib/tika-app-1.11.jar"/>
+	<classpathentry kind="lib" path="F:/Java/extlib/fontbox-2.0.0-RC2.jar"/>
+	<classpathentry kind="lib" path="F:/Java/extlib/pdfbox-2.0.0-RC2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

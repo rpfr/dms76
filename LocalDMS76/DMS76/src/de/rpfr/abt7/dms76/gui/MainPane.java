@@ -10,10 +10,15 @@ public class MainPane extends BorderPane {
 	public MainPane(DMS76 dms){
 		super();
 		this.dms = dms;
+		setId("mainpane");
 		
 		setTop(new SearchfilterPane(this));
 		setCenter(new DoclistPane(this));
 		
+	}
+
+	public DMS76 getDms() {
+		return dms;
 	}
 
 }

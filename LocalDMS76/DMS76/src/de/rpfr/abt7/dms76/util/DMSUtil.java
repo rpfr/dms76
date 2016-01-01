@@ -8,6 +8,8 @@ import java.util.Properties;
 public class DMSUtil {
 	
 	public final static String PROP_TARGETDIR = "targetdirectory";
+	public final static String PROP_DATADIR = "datadirectory";
+	public final static String PROP_INDEXDIR = "indexdirectory";
 	
 	private static DMSUtil myself;
 	
