@@ -1,36 +1,31 @@
-[000 Mikesch]
-000 Handy = 1
-000 Internet = 1
-000 MOBILIT\u00c4T_Fahrzeuge = 1
-000 TAMY = 1
-000_MM pers\u00f6nlich = 1
-AKTUELLE DATEN = 1
-Beruf = 1
-ebay = 1
-Merkt ERIKA-WALTER = 1
-PLAN-Pate = 1
-Tagebuch = 1
-Tauchen = 1
-000 Mikesch = 0
-Werkzeug = 1
-Zz Stoffbesitzer = 1
-Zzz Rezepte = 1
+[A160 Typ 168]
+A160 Typ 168 = 0
 
-[000 Robert Koch Strasse 17]
-0 Planung Zeichnen-Planen-Messen = 1
-000 Kosten\u00fcberwachung = 1
-000 Robert Koch Strasse 17 = 0
-ZZzz Produktinformationen = 1
+[TUT-CB 18 Honda CB500]
+TUT-CB 18 Honda CB500 = 0
+Wartung_Schrauben = 1
+z Kauf- alte Zulassung = 1
 
-[000 Selbstst\u00e4ndigkeit]
-0 Aldingen = 1
-0 Daniel Liebermann = 1
-EP = 1
-000 Selbstst\u00e4ndigkeit = 0
-TQI = 1
-zBuchhaltung = 1
-Zz Normen_Regelwerke_Vorgaben = 1
+[TUT-M 183 Dads Anh\u00e4nger]
+TUT-M 183 Dads Anh\u00e4nger = 0
 
-[2015-05 Pfingsten URLAUB]
-2015-05 Pfingsten URLAUB = 0
+[TUT-MM 257 Anh\u00e4nger BRANDL]
+2010-09 KAUF = 1
+2010-10 Zulassung = 1
+TUT-MM 257 Anh\u00e4nger BRANDL = 0
+
+[TUT-MM 772 VW T5]
+2013-08 Kauf-Anmeldung = 1
+TUT-MM 772 VW T5 = 0
+ALLIANZ - Versicherung = 1
+Finanzamt KFZ-STEUER = 1
+Teile - SCHRAUBEN = 1
+
+[z TUT-F17 XT 600]
+z TUT-F17 XT 600 = 0
+
+[z TUT-MM 772 VW T4]
+z TUT-MM 772 VW T4 = 0
+2009-03-16 Unfall VW T4 = 1
+Teile - Einbau = 1
 

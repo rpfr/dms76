@@ -1,5 +1,8 @@
 package de.rpfr.abt7.dms76.gui;
 
+import java.util.List;
+
+import de.rpfr.abt7.dms76.obj.DMSIndexItem;
 import de.rpfr.abt7.dms76.obj.SearchfilterBean;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,7 +25,6 @@ public class SearchfilterPane extends GridPane {
 	private MainPane mainpanel;
 	private SearchfilterBean sfbean;
 	
-	private TextField tfSuche;
 	private ComboBox<String> cbKategorie2;
 
 	public SearchfilterPane(MainPane mainpanel) {
@@ -67,6 +69,7 @@ public class SearchfilterPane extends GridPane {
 		    ypos++;
 		    
 		    final Separator sepHor1 = new Separator();
+		    sepHor1.getStyleClass().add("formseparator");
 	        sepHor1.setValignment(VPos.CENTER);
 	        GridPane.setConstraints(sepHor1, 0, ypos);
 	        GridPane.setColumnSpan(sepHor1, 7);
@@ -108,19 +111,25 @@ public class SearchfilterPane extends GridPane {
 	        ypos++;
 		    
 		    final Separator sepHor2 = new Separator();
+		    sepHor2.getStyleClass().add("formseparator");
 	        sepHor2.setValignment(VPos.CENTER);
 	        GridPane.setConstraints(sepHor2, 0, ypos);
 	        GridPane.setColumnSpan(sepHor2, 7);
 
 	        ypos++;
 
-	        Label labDateityp = new Label("Dateityp:");
+	        Label labDateityp = new Label("Dateiname/-typ:");
 		    labDateityp.getStyleClass().add("formlabel");
 		    setConstraints(labDateityp, 0, ypos);
 		    
+		    TextField tfDateityp = new TextField();
+		    tfDateityp.getStyleClass().add("forminput");
+		    setConstraints(tfDateityp, 1, ypos);
+		    tfDateityp.textProperty().bindBidirectional(sfbean.titleProperty());
+		    
 		    ComboBox<String> cbDateityp = new ComboBox<>(mainpanel.getDms().getDMSFh().getFileTyps());
 		    cbDateityp.getStyleClass().add("forminput");
-		    setConstraints(cbDateityp, 1, ypos);
+		    setConstraints(cbDateityp, 2, ypos);
 		    cbDateityp.valueProperty().bindBidirectional(sfbean.dateitypProperty());
 	
 		    Label labDateitypImg = new Label();
@@ -133,6 +142,7 @@ public class SearchfilterPane extends GridPane {
 		    ypos++;
 		    
 		    final Separator sepHor3 = new Separator();
+		    sepHor3.getStyleClass().add("formseparator");
 	        sepHor3.setValignment(VPos.CENTER);
 	        GridPane.setConstraints(sepHor3, 0, ypos);
 	        GridPane.setColumnSpan(sepHor3, 7);
@@ -168,6 +178,7 @@ public class SearchfilterPane extends GridPane {
 		    ypos++;
 		    
 		    final Separator sepHor4 = new Separator();
+		    sepHor4.getStyleClass().add("formseparator");
 	        sepHor4.setValignment(VPos.CENTER);
 	        GridPane.setConstraints(sepHor4, 0, ypos);
 	        GridPane.setColumnSpan(sepHor4, 7);
@@ -178,7 +189,7 @@ public class SearchfilterPane extends GridPane {
 		    labSuche.getStyleClass().add("formlabel");
 		    setConstraints(labSuche, 0, ypos);
 		    
-		    tfSuche = new TextField();
+		    TextField tfSuche = new TextField();
 		    tfSuche.getStyleClass().add("forminput");
 		    setConstraints(tfSuche, 1, ypos);
 		    setColumnSpan(tfSuche, 3);
@@ -194,6 +205,7 @@ public class SearchfilterPane extends GridPane {
 		    ypos++;
 	
 		    CheckBox cbUnd = new CheckBox();
+		    cbUnd.setDisable(true);
 		    cbUnd.setText("UND-Verknüpfung");
 		    cbUnd.setSelected(false);
 		    cbUnd.getStyleClass().add("forminput");
@@ -201,6 +213,7 @@ public class SearchfilterPane extends GridPane {
 		    cbUnd.selectedProperty().bindBidirectional(sfbean.undVerknuepfungProperty());
 	
 		    CheckBox cbFuzzy = new CheckBox();
+		    cbFuzzy.setDisable(true);
 		    cbFuzzy.setText("Ähnliche Begriffe suchen");
 		    cbFuzzy.setSelected(false);
 		    cbFuzzy.getStyleClass().add("forminput");
@@ -219,6 +232,7 @@ public class SearchfilterPane extends GridPane {
 		    ypos++;
 		    
 		    final Separator sepHor5 = new Separator();
+		    sepHor5.getStyleClass().add("formseparator");
 	        sepHor5.setValignment(VPos.CENTER);
 	        GridPane.setConstraints(sepHor5, 0, ypos);
 	        GridPane.setColumnSpan(sepHor5, 6);
@@ -233,10 +247,7 @@ public class SearchfilterPane extends GridPane {
 		    setColumnSpan(btnGo, 3);
 		    btnGo.setOnAction((e)->readyToSearch());
 		    
-		    
-		    
-		    
-		    getChildren().addAll(sepHor1, sepHor2, sepHor3, sepHor4, sepHor5, labErsteller, /*tfErsteller*/cbErsteller, labVon, dpVon, dpBis, cbDateShortcut, labErstellerImg, labVonBisImg, labDateityp, cbDateityp, labDateitypImg, labKategorien, cbKategorie1, cbKategorie2, labKategorieImg, labSuche, tfSuche, labSucheImg, cbUnd, cbFuzzy, btnGo);
+		    getChildren().addAll(sepHor1, sepHor2, sepHor3, sepHor4, sepHor5, labErsteller, /*tfErsteller*/cbErsteller, labVon, dpVon, dpBis, cbDateShortcut, labErstellerImg, labVonBisImg, labDateityp, tfDateityp, cbDateityp, labDateitypImg, labKategorien, cbKategorie1, cbKategorie2, labKategorieImg, labSuche, tfSuche, labSucheImg, cbUnd, cbFuzzy, btnGo);
 		    
 		}catch(Exception e){
 			e.printStackTrace();
@@ -257,8 +268,48 @@ public class SearchfilterPane extends GridPane {
 		}
 	}
 
-	private void readyToSearch() {
-		mainpanel.getDms().getDMSFh().search(tfSuche.getText());
+	private List<DMSIndexItem> readyToSearch() {
+		List<DMSIndexItem> hits = null;
+		StringBuffer querystring = new StringBuffer();
+		if(sfbean.getErsteller() != null && sfbean.getErsteller().length()>0){
+			querystring.append(DMSIndexItem.ERSTELLER + ":\"" + sfbean.getErsteller() + "\" ");
+		}
+		if(sfbean.getTitle() != null && sfbean.getTitle().length()>0){
+			if(querystring.length() > 0){
+				querystring.append("AND ");
+			}
+			querystring.append(DMSIndexItem.INT_TITLE + ":\"" + sfbean.getTitle() + "\" ");
+		}
+		if(sfbean.getDateityp() != null && sfbean.getDateityp().length()>0){
+			if(querystring.length() > 0){
+				querystring.append("AND ");
+			}
+			querystring.append(DMSIndexItem.TYPE + ":\"" + sfbean.getDateityp() + "\" ");
+		}
+		if(sfbean.getKategorie1() != null && sfbean.getKategorie1().length()>0){
+			if(querystring.length() > 0){
+				querystring.append("AND ");
+			}
+			querystring.append(DMSIndexItem.KAT1 + ":\"" + sfbean.getKategorie1() + "\" ");
+		}
+		if(sfbean.getKategorie2() != null && sfbean.getKategorie2().length()>0){
+			if(querystring.length() > 0){
+				querystring.append("AND ");
+			}
+			querystring.append(DMSIndexItem.KAT2 + ":\"" + sfbean.getKategorie2() + "\" ");
+		}
+		if(sfbean.getSuchbegriff() != null && sfbean.getSuchbegriff().length()>0){
+			if(querystring.length() > 0){
+				querystring.append("AND ");
+			}
+			querystring.append("(" + sfbean.getSuchbegriff() + ")");
+		}
+		System.out.println(querystring);
+		hits = mainpanel.getDms().getDMSFh().search(querystring.toString());
+		
+		mainpanel.getDoclistPanel().setHits(hits);
+		
+		return hits;
 	}
 
 }

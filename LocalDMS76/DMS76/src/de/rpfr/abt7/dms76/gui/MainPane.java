@@ -6,6 +6,7 @@ import javafx.scene.layout.BorderPane;
 public class MainPane extends BorderPane {
 	
 	private DMS76 dms;
+	private DoclistPane doclistpane;
 	
 	public MainPane(DMS76 dms){
 		super();
@@ -13,12 +14,18 @@ public class MainPane extends BorderPane {
 		setId("mainpane");
 		
 		setTop(new SearchfilterPane(this));
-		setCenter(new DoclistPane(this));
+		
+		doclistpane = new DoclistPane(this);
+		setCenter(doclistpane);
 		
 	}
 
 	public DMS76 getDms() {
 		return dms;
+	}
+
+	public DoclistPane getDoclistPanel() {
+		return doclistpane;
 	}
 
 }

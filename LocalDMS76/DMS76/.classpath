@@ -8,11 +8,11 @@
 	<classpathentry kind="lib" path="res"/>
 	<classpathentry kind="lib" path="F:/Java/extlib/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="F:/Java/extlib/filedrop-1.1/filedrop.jar"/>
-	<classpathentry kind="lib" path="F:/Java/extlib/lucene-5.3.1/analysis/common/lucene-analyzers-common-5.3.1.jar"/>
-	<classpathentry kind="lib" path="F:/Java/extlib/lucene-5.3.1/core/lucene-core-5.3.1.jar"/>
-	<classpathentry kind="lib" path="F:/Java/extlib/lucene-5.3.1/queryparser/lucene-queryparser-5.3.1.jar"/>
 	<classpathentry kind="lib" path="F:/Java/extlib/tika-app-1.11.jar"/>
 	<classpathentry kind="lib" path="F:/Java/extlib/fontbox-2.0.0-RC2.jar"/>
 	<classpathentry kind="lib" path="F:/Java/extlib/pdfbox-2.0.0-RC2.jar"/>
+	<classpathentry kind="lib" path="F:/Java/extlib/lucene-5.4.0/analysis/common/lucene-analyzers-common-5.4.0.jar"/>
+	<classpathentry kind="lib" path="F:/Java/extlib/lucene-5.4.0/queryparser/lucene-queryparser-5.4.0.jar"/>
+	<classpathentry kind="lib" path="F:/Java/extlib/lucene-5.4.0/core/lucene-core-5.4.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

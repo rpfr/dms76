@@ -3,7 +3,7 @@
 	-fx-font-family: 'sans-serif';
 }
 
-#mainpane {
+#mainpane, #statisticpane {
 	-fx-background-image: url('/../res/bg.jpg');
 }
 
@@ -48,6 +48,9 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 10, 0, 5, 5);
 }
 
+#searchfilter .formseparator {
+}
+
 #doclist {
     -fx-padding: 10px;
 }
@@ -63,4 +66,9 @@
 	-fx-background-color: linear-gradient(to top left, #000033, #000066);
     -fx-text-fill: green;
 	
+}
+
+
+#statisticpane ProgressBar {
+	-fx-padding: 20 0 0 0;
 }
